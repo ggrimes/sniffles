@@ -6,3 +6,4 @@ channels:
   - defaults
 dependencies:
   - sniffles>=2.0
+  - bcftools

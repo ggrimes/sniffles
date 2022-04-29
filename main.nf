@@ -32,8 +32,8 @@ process SNIFFLES {
   """
 }
 
-bam_ch = channel.fromFilePairs(params.bam,checkIfFileExits: true)
-reference_ch = file(params.bam,checkIfFileExits: true)
+bam_ch = channel.fromFilePairs(params.bam,checkIfFileExits: true,size:)
+reference_ch = file(params.reference,checkIfFileExits: true)
 bam_ch.view()
 
 workflow {

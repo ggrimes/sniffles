@@ -35,6 +35,7 @@ process SNIFFLES {
 bam_ch = channel.fromFilePairs(params.bam,checkIfFileExits: true)
 reference_ch = file(params.bam,checkIfFileExits: true)
 bam_ch.view()
+reference_ch.view()
 workflow {
   SNIFFLES(bam_ch,reference_ch)
 }

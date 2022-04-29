@@ -12,7 +12,7 @@ log.info """\
 
 //sniffles https://github.com/fritzsedlazeck/Sniffles
 process SNIFFLES {
- tags "$samplename"
+ tag "$samplename"
  publishDir "results", mode:"copy"
  cpus params.threads
  memory '32 GB'

@@ -28,7 +28,7 @@ process SNIFFLES {
   
   script:
   """
-  sniffles -i $bam -v $samplename.vcf --non-germline --threads $task.cpus -output-rnames
+  sniffles -i ${bam} -v ${samplename}.sniffles2.vcf --non-germline --threads $task.cpus -output-rnames
   """
 }
 

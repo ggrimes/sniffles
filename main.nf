@@ -28,11 +28,11 @@ process SNIFFLES {
   
   script:
   """
-  sniffles -i ${bam} -v ${samplename}.sniffles2.vcf --non-germline --threads $task.cpus --output-rnames
+  sniffles -i ${samplename}.bam -v ${samplename}.sniffles2.vcf --non-germline --threads $task.cpus --output-rnames
   """
 }
 
-bam_ch = channel.fromFilePairs(params.bam,checkIfFileExits: true,size:1)
+bam_ch = channel.fromFilePairs(params.bam,checkIfFileExits: true,size:2){ file -> file.name.replaceAll(/.bam|.bai$/,'') }
 reference_ch = file(params.reference,checkIfFileExits: true)
 bam_ch.view()
 

@@ -3,7 +3,7 @@ nextflow.enable.dsl=2
 //parameters
 params.bam="*.bam"
 params.ref="ref.fa"
-params.threads = 4
+params.threads = 16
 
 log.info """\
   bam:        $params.bam
@@ -28,7 +28,7 @@ process SNIFFLES {
   
   script:
   """
-  sniffles -i ${bam} -v ${samplename}.sniffles2.vcf --non-germline --threads $task.cpus -output-rnames
+  sniffles -i ${bam} -v ${samplename}.sniffles2.vcf --non-germline --threads $task.cpus --output-rnames
   """
 }
 
